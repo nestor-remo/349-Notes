@@ -1,0 +1,13 @@
+<html>
+
+<body>
+ <p>The time is: <span></span></p>
+ <script>
+  const span = document.querySelector("span");
+  setInterval(() => {
+   span.innerHTML = new Date().toLocaleTimeString();
+  }, 1000);
+ </script>
+</body>
+
+</html>

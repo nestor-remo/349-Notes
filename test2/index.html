@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+
+<body>
+ <h1 class="text">Click Button to Change Color!</h1>
+ <div class="container">
+  <button type="button" onclick="changeColor(event)">Blue</button>
+  <button type="button" onclick="changeColor(event)">Red</button>
+  <button type="button" onclick="changeColor(event)">Pink</button>
+  <button type="button" onclick="changeColor(event)">Green</button>
+ </div>
+ <script>
+  function changeColor(color) {
+   const header = document.querySelector("h1");
+   header.style.color = event.target.innerHTML;
+  }
+ </script>
+</body>
+
+</html>

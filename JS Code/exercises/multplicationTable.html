@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script>
+      // Ask for the size of the table (assume it's a n by n matrix)
+      const size = prompt("Yo, what size?");
+      const rows = size;
+      const cols = size;
+
+      // First, create the "table" HTML element
+      let output = "<table border='1' cellpadding='6' cellspacing='0'>";
+
+      // Remember, x += 1 is the same as x = x + 1
+      output += "<tr><th>X</th>";
+
+      // First row
+      for (let x = 1; x <= cols; x++) {
+        output += `<th>${x}</th>`;
+      }
+
+      // Outer loop is for the rows
+      for (let x = 1; x <= rows; x++) {
+        // First column
+        output += `<tr><th>${x}</th>`;
+
+        // Second loop is for the columns
+        for (let y = 1; y <= cols; y++) {
+          // Output the product
+          output += `<td>${x * y}</td>`;
+        }
+
+        // Close the current row
+        output += "</tr>";
+      }
+
+      // Close the table
+      output += "</table>";
+
+      // Write the whole output string to the document
+      document.write(output);
+    </script>
+  </head>
+</html>

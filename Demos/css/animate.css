@@ -1,0 +1,55 @@
+div {
+ width: 200px;
+ height: 200px;
+ background: red;
+ transition: width 2s, background 6s;
+ /*transition-delay: 3s; */
+}
+
+div p {
+ color: white;
+ font-size: 20px;
+ font-weight: bold;
+ /*font-family: 'GIll Sans', 'Gill Sans MT', Calibri; */
+ font: 20px bold;
+}
+
+div:hover {
+ width: 400px;
+ background: blue;
+}
+
+div.happy {
+ margin-top: 20px;
+ background: green;
+ transform: translate(50px, 100px) rotate(20deg)
+ scale(2, 2);
+}
+
+div.happy:hover{
+ transform: rotateZ(90deg);
+}
+
+@keyframes example {
+ from {
+  background-color: red;
+ }
+ to {
+  background-color: hotpink;
+ }
+}
+
+.gap {
+ height: 2000px;
+ background: yellow;
+ animation-name: example;
+ animation-duration: 4s;
+}
+
+div.header {
+ background: blue;
+ height: 50px;
+ width: 100%;
+ position: sticky;
+ top: 0;
+}

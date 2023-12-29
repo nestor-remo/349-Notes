@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    /* Hide the images by default */
+    .mySlides {
+      display: none;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      width: auto;
+      padding: 16px;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.8);
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 0 3px 3px 0;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  </style>
+  <body>
+    <h2 style="text-align: center">Slideshow Gallery</h2>
+
+    <img src="images/img_woods_wide.jpg" class="mySlides" />
+    <img src="images/img_5terre_wide.jpg" class="mySlides" />
+    <img src="images/img_mountains_wide.jpg" class="mySlides" />
+    <img src="images/img_lights_wide.jpg" class="mySlides" />
+    <img src="images/img_nature_wide.jpg" class="mySlides" />
+    <img src="images/img_snow_wide.jpg" class="mySlides" />
+
+    <button class="prev" onclick="prevSlide()">Previous</button>
+    <button class="next" onclick="nextSlide()">Next</button>
+
+    <script>
+      // Keep track of the current image index
+      let currentSlideIndex = 1;
+
+      // Since all images are hidden initially (through CSS), we want to show the first image
+      showSlides();
+
+      function prevSlide() {
+        currentSlideIndex -= 1;
+        showSlides();
+      }
+
+      function nextSlide() {
+        currentSlideIndex += 1;
+        showSlides();
+      }
+
+      function showSlides() {
+        let slides = document.querySelectorAll(".mySlides");
+
+        // Check for bounds
+        if (currentSlideIndex > slides.length) {
+          currentSlideIndex = 1;
+        } else if (currentSlideIndex < 1) {
+          currentSlideIndex = slides.length;
+        }
+
+        // Hide all the other images
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+
+        // But display the current
+        slides[currentSlideIndex - 1].style.display = "block";
+      }
+    </script>
+  </body>
+</html>

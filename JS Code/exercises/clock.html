@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <script>
+      function updateTime() {
+        // Create a new Date object
+        const date = new Date();
+
+        const span = document.getElementById("time");
+
+        // The Date object has a method to get the time from the current locale
+        span.innerHTML = date.toLocaleTimeString();
+      }
+
+      // https://developer.mozilla.org/en-US/docs/Web/API
+      // setInterval repeatedly calls a function with a fixed time delay between each call.
+      setInterval(updateTime, 1000);
+    </script>
+  </head>
+
+  <body>
+    <p>The time is: <span id="time"></span></p>
+  </body>
+</html>

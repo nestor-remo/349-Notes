@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <script>
+      /** document.write will overwrite every HTML inside <body>
+       *  "document" is an object that is readily available on the browser
+       **/
+      function myFunction() {
+        document.write("<h1>Hello, world!</h1>");
+        document.write("<p>My name is Ethan</p>");
+      }
+
+      function changeBoxClasses() {
+        // Get all div elements
+        let boxes = document.querySelectorAll("div");
+
+        // Loop through each box and add a class named "yellowish"
+        for (let box of boxes) {
+          box.classList.add("yellowish");
+        }
+      }
+
+      function toggleSpecialBox() {
+        const specialBox = document.getElementById("special");
+        specialBox.classList.toggle("yellowish");
+
+        // The following line works but it's better to create a paragraph element instead
+        // specialBox.innerHTML += "<p>Hello, Ethan</p>";
+
+        const paragraph = document.createElement("p");
+        paragraph.innerHTML = "Hello, Ethan";
+        paragraph.style.backgroundColor = "red";
+        paragraph.style.color = "white";
+
+        // Since elements can have elements, appendChild is simply to add child to a parent element
+        specialBox.appendChild(paragraph);
+      }
+
+      // This function is nice because it's dynamic
+      // We can change the font size of any element through the event
+      function increaseFontSize(size, event) {
+        event.currentTarget.style.fontSize = size;
+      }
+    </script>
+
+    <style>
+      div {
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+      }
+
+      .special {
+        padding: 20px;
+      }
+
+      .yellowish {
+        background: rgb(155, 155, 56);
+      }
+    </style>
+  </head>
+
+  <body>
+    <button onClick="myFunction()">Click me to overwrite the HTML!</button>
+    <button onClick="changeBoxClasses()">Add classes to box</button>
+    <button onClick="toggleSpecialBox()">Add class to special box</button>
+
+    <div class="special" id="special"></div>
+    <div class="ceiara"></div>
+    <div class="ethan"></div>
+
+    <!-- The following is commented out because it's not robust. You should think of the big picture and understand how badly this will scale. What will happen if we need to add n number of more paragraphs? Do we really want to have n number of IDs?-->
+
+    <!-- <p onMouseEnter="increaseFontSize('46px', 'test1')" id="test1">
+      Paragraph 1
+    </p>
+    <p onMouseEnter="increaseFontSize('26px', 'test2')" id="test2">
+      Paragraph 2
+    </p>
+    <p onMouseEnter="increaseFontSize('36px', 'test3')" id="test3">
+      Paragraph 3
+    </p>
+    <p onMouseEnter="increaseFontSize('6px', 'test4')" id="test4">
+      Paragraph 4
+    </p>
+    <p onMouseEnter="increaseFontSize('46px', 'test5')" id="test5">
+      Paragraph 5
+    </p>
+    <p onMouseEnter="increaseFontSize('46px', 'test6')" id="test6">
+      Paragraph 6
+    </p> -->
+
+    <!-- "event" describes information of the said event such as what triggered it and other useful data.
+    For example, if the event is mouseEnter, you can find out the x and y coordinates in which it was entered -->
+    <p onMouseEnter="increaseFontSize('46px', event)">Paragraph 1</p>
+    <p onMouseEnter="increaseFontSize('26px', event)">Paragraph 2</p>
+    <p onMouseEnter="increaseFontSize('36px', event)">Paragraph 3</p>
+    <p onMouseEnter="increaseFontSize('6px', event)">Paragraph 4</p>
+    <p onMouseEnter="increaseFontSize('46px', event)">Paragraph 5</p>
+    <p onMouseEnter="increaseFontSize('46px', event)">Paragraph 6</p>
+  </body>
+</html>

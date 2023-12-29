@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <style>
+      .error {
+        border: 3px solid red;
+      }
+    </style>
+    <script>
+      function validateForm(event) {
+        // Certain elements have a default behavior which may be undesired e.g forms refreshing
+        // This will prevent this from happening
+        event.preventDefault();
+
+        // Get the element by ID
+        const emailField = document.getElementById("email");
+
+        // Regular Expression - Match any non-blank space with @ and .
+        const pattern = /\S+@\S+\.\S/;
+
+        if (pattern.test(emailField.value)) {
+          emailField.classList.remove("error");
+          alert("Validated!");
+        } else {
+          emailField.classList.add("error");
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <form>
+      <input type="email" placeholder="you@gmail.com" id="email" />
+      <input type="submit" onclick="validateForm(event)" value="Submit" />
+    </form>
+  </body>
+</html>

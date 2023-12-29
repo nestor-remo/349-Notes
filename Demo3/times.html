@@ -1,0 +1,31 @@
+<html>
+<table>
+</table>
+
+<body>
+
+ <script>
+  const n = prompt("Enter a number:");
+  const table = document.querySelector("table");
+  let output = "";
+  for (let i = 1; i <= n; i++) {
+   output += "<tr>";
+   for (let j = 1; j <= n; j++) {
+    output += `<td>${i * j}</td>`;
+    //"<td>" + i * j + "</td>";
+   }
+   output += "</tr>";
+  }
+  table.innerHTML = output;
+
+  const fruits = ["apple", "banana", "orange", "durian"]
+  let list = "<ul>"
+  for (let fruit in fruits) {
+   list += `<li>${fruit}</li>`;
+  }
+  list += "</ul>";
+  document.body.innerHTML += list;
+ </script>
+</body>
+
+</html>

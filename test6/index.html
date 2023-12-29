@@ -1,0 +1,44 @@
+<html>
+<label>Choose a conference:</label>
+<select id="conference"></select>
+<br>
+<label>Choose a division:</label>
+<select id="division"></select>
+<ul></ul>
+
+<body>
+ <script>
+  const confToDiv = {};
+  const divToTeam = {};
+  fetch("https://www.balldontlie.io/api/v1/teams")
+   .then(response => response.json())
+   .then(json) => {
+   for (let item.conference of json.data) {
+    if (item.divison in confToDiv) {
+     const divisions = confToDiv[item.conference];
+     divisions.add(item.division);
+    }
+    else {
+     const newSet = new Set();
+     newSet.add(item.division);
+     confToDiv[item.conference] = newSet;
+    }
+    if (item.division in divToTeam) {
+     const teams = divToTeam[item.division];
+     teams.add(item.full_name);
+    }
+    else {
+     const newSet = new Set();
+     newSet.add(item.division);
+     divToTeam[item.division] = newSet;
+    }
+   }
+  }
+  const confDropdown = document.getElementById("conference");
+  const divDropdown = document.getElementById("division");
+  const list = document.querySelector("ul");
+
+ </script>
+</body>
+
+</html>

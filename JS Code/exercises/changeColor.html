@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <!-- Exercise: When I click on a button with text of a color, I want to change the foreground of my h1 -->
+    <script>
+      function changeColor(event) {
+        const text = document.getElementById("text");
+        const color = event.currentTarget.innerText;
+        text.style.color = color;
+      }
+    </script>
+  </head>
+  <body>
+    <h1 id="text">Click Button to Change Color!</h1>
+    <button onClick="changeColor(event)">blue</button>
+    <button onClick="changeColor(event)">red</button>
+    <button onClick="changeColor(event)">hotpink</button>
+    <button onClick="changeColor(event)">green</button>
+  </body>
+</html>

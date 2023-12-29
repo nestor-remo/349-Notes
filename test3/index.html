@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+
+<body>
+ <h1 class="text">Click Button to Change Color!</h1>
+ <div>
+  <button>Blue</button>
+  <button>Red</button>
+  <button>Pink</button>
+  <button>Green</button>
+ </div>
+
+ <script>
+  const buttons = document.querySelectorAll("button");
+  const header = document.querySelector("h1");
+  for (let button of buttons) {
+   button.addEventListener("click", changeColor);
+  }
+  function changeColor(event) {
+   header.style.color = event.target.innerHTML;
+  }
+ </script>
+</body>
+
+</html>

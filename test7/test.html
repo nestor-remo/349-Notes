@@ -1,0 +1,14 @@
+<html>
+
+<body>
+ <script>
+  const list = document.createElement("ul");
+  const numbers = [1, 2, 3, 4, 5];
+  const output = numbers.map((number) => `<li>Item ${number}</li>`);
+  console.log(output)
+  list.innerHTML = output;
+  document.body.append(list);
+ </script>
+</body>
+
+</html>
